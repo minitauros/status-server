@@ -9,6 +9,9 @@ import (
 )
 
 func handleCall(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("access-control-allow-origin", "*")
+	w.Header().Set("access-control-allow-headers", "*")
+
 	// Get status code from URL.
 	statusCode := r.URL.Path
 	statusCode = strings.TrimPrefix(statusCode, "/")
