@@ -9,8 +9,16 @@ import (
 )
 
 func handleCall(w http.ResponseWriter, r *http.Request) {
+	var err error
+
 	w.Header().Set("access-control-allow-origin", "*")
 	w.Header().Set("access-control-allow-headers", "*")
+	w.Header().Set("access-control-allow-methods", "*")
+
+	if r.Method == "OPTIONS" {
+		w.WriteHeader(200)
+		return
+	}
 
 	// Get status code from URL.
 	statusCode := r.URL.Path
