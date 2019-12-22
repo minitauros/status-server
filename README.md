@@ -9,3 +9,5 @@ go run main.go
 ````
 
 Then navigate to http://localhost:8080/{status_code}, for example http://localhost:8080/404.
+
+Optionally a JSON response body can be specified. For example loading http://localhost:8080/404?a=b will respond with `{"a":"b"}`.
